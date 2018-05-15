@@ -18,9 +18,9 @@ public class TestingMain {
 
         // Calculator test
 
-        SimpleCalculator simpleCalculator = new SimpleCalculator(15, 20);
+        SimpleCalculator simpleCalculator = new SimpleCalculator();
 
-        int addResult = simpleCalculator.add();
+        int addResult = simpleCalculator.add(10, 15);
 
         if (addResult == 35){
             System.out.println("Adding works");
@@ -28,7 +28,7 @@ public class TestingMain {
             System.out.println("Adding doesn't work");
         }
 
-        int substractResult = simpleCalculator.substract();
+        int substractResult = simpleCalculator.substract(10, 15);
 
         if (substractResult == -5) {
             System.out.println("Substracting works");
