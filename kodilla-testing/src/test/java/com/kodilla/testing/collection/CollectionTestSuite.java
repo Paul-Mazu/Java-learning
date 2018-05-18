@@ -21,7 +21,7 @@ public class CollectionTestSuite {
         ArrayList<Integer> theEmptyList = new ArrayList<>();
         OddNumbersExterminator exterminator1 = new OddNumbersExterminator();
         ArrayList<Integer>myTestList1 = exterminator1.exterminate(theEmptyList);
-        if (myTestList1.size() == 0) System.out.println("Test Passed"); else System.out.println("Test Failure");
+        Assert.assertEquals(0, myTestList1.size());
     }
 
 
@@ -34,10 +34,7 @@ public class CollectionTestSuite {
         }
         OddNumbersExterminator exterminator2 = new OddNumbersExterminator();
         ArrayList<Integer>myTestList = exterminator2.exterminate(theNormalList);
-        if (myTestList.get(0) % 2 == 0) {
-            System.out.println("Test Passed");
-        } else {
-            System.out.println("Test failure");
-        }
+        Assert.assertEquals(new Integer(2), myTestList.get(0));
+
     }
 }
