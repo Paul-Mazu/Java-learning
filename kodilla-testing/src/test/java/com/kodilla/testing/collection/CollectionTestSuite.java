@@ -20,7 +20,8 @@ public class CollectionTestSuite {
     public void testOddNumbersExterminatorEmptyList() {
         ArrayList<Integer> theEmptyList = new ArrayList<>();
         OddNumbersExterminator exterminator1 = new OddNumbersExterminator();
-        exterminator1.exterminate(theEmptyList);
+        ArrayList<Integer>myTestList1 = exterminator1.exterminate(theEmptyList);
+        if (myTestList1.size() == 0) System.out.println("Test Passed"); else System.out.println("Test Failure");
     }
 
 
@@ -32,9 +33,11 @@ public class CollectionTestSuite {
             theNormalList.add(i + 1);
         }
         OddNumbersExterminator exterminator2 = new OddNumbersExterminator();
-        exterminator2.exterminate(theNormalList);
-
+        ArrayList<Integer>myTestList = exterminator2.exterminate(theNormalList);
+        if (myTestList.get(0) % 2 == 0) {
+            System.out.println("Test Passed");
+        } else {
+            System.out.println("Test failure");
+        }
     }
-
-
 }
