@@ -31,7 +31,6 @@ public class CollectionTestSuite {
         for (int i =0; i < 10; i++){
             theNormalList.add(i + 1);
         }
-
         OddNumbersExterminator exterminator2 = new OddNumbersExterminator();
         exterminator2.exterminate(theNormalList);
 
