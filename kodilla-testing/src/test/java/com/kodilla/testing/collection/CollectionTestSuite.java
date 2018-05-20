@@ -2,7 +2,10 @@ package com.kodilla.testing.collection;
 import org.junit.*;
 import com.kodilla.testing.collection.OddNumbersExterminator;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 
 public class CollectionTestSuite {
@@ -29,12 +32,20 @@ public class CollectionTestSuite {
 
     public void testOddNumbersExterminatorNormalList() {
         ArrayList<Integer> theNormalList = new ArrayList<>();
-        for (int i =0; i < 10; i++){
+        for (int i =0; i < 7; i++){
             theNormalList.add(i + 1);
         }
         OddNumbersExterminator exterminator2 = new OddNumbersExterminator();
         ArrayList<Integer>myTestList = exterminator2.exterminate(theNormalList);
+
         Assert.assertEquals(new Integer(2), myTestList.get(0));
+
+        ArrayList<Integer>listFotComparison = new ArrayList<>();
+        listFotComparison.add(2);
+        listFotComparison.add(4);
+        listFotComparison.add(6);
+
+        Assert.assertEquals(listFotComparison, myTestList);
 
     }
 }
