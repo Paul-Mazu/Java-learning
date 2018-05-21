@@ -21,9 +21,9 @@ public class CollectionTestSuite {
     @Test
 
     public void testOddNumbersExterminatorEmptyList() {
-        ArrayList<Integer> theEmptyList = new ArrayList<>();
+        List<Integer> theEmptyList = new ArrayList<>();
         OddNumbersExterminator exterminator1 = new OddNumbersExterminator();
-        ArrayList<Integer>myTestList1 = exterminator1.exterminate(theEmptyList);
+        List<Integer>myTestList1 = exterminator1.exterminate(theEmptyList);
         Assert.assertEquals(0, myTestList1.size());
     }
 
@@ -31,19 +31,16 @@ public class CollectionTestSuite {
     @Test
 
     public void testOddNumbersExterminatorNormalList() {
-        ArrayList<Integer> theNormalList = new ArrayList<>();
+        List<Integer> theNormalList = new ArrayList<>();
         for (int i =0; i < 7; i++){
             theNormalList.add(i + 1);
         }
         OddNumbersExterminator exterminator2 = new OddNumbersExterminator();
-        ArrayList<Integer>myTestList = exterminator2.exterminate(theNormalList);
+        List<Integer>myTestList = exterminator2.exterminate(theNormalList);
 
         Assert.assertEquals(new Integer(2), myTestList.get(0));
 
-        ArrayList<Integer>listFotComparison = new ArrayList<>();
-        listFotComparison.add(2);
-        listFotComparison.add(4);
-        listFotComparison.add(6);
+        List<Integer>listFotComparison = Arrays.asList(2, 4, 6);
 
         Assert.assertEquals(listFotComparison, myTestList);
 
