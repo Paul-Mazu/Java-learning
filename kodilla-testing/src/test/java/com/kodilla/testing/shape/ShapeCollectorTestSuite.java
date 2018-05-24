@@ -67,4 +67,14 @@ public class ShapeCollectorTestSuite {
         Assert.assertEquals(theSquare, anyShape);
     }
 
+    @Test //4
+    public void testGetShapeName(){
+        //Given
+        Square theSquare = new Square("Square", 10,10);
+        //When
+        String current = theSquare.getShapeName();
+        //Then
+        Assert.assertEquals("Square", current);
+    }
+
 }

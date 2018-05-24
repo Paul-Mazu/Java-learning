@@ -1,5 +1,7 @@
 package com.kodilla.testing.shape;
 
+import java.util.List;
+
 public class Triangle implements Shape {
 
     @Override
