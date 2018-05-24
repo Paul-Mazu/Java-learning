@@ -1,16 +1,28 @@
 package com.kodilla.testing.shape;
 
-import java.util.List;
+import static java.lang.Math.pow;
 
 public class Circle implements Shape {
 
+    String circleName;
+    double radius;
+
+    public Circle(String circleName, double radius) {
+        this.circleName = circleName;
+        this.radius = radius;
+    }
+
     @Override
     public String getShapeName() {
-        return null;
+        return "Circle";
     }
 
     @Override
     public double getField() {
-        return 0;
+        return pi * pow(pi, 2) ;
     }
+
+    final double pi =  3.14;
+
+
 }

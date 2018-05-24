@@ -3,6 +3,9 @@ package com.kodilla.testing.shape;
 
 import org.junit.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ShapeCollectorTestSuite {
 
     private static int testCounter = 0;
@@ -28,14 +31,14 @@ public class ShapeCollectorTestSuite {
         //Given
         ShapeCollector shapeCollector = new ShapeCollector();
         Square theSquare = new Square("Square", 20, 20);
-        Circle theCircle = new Circle();
-        Triangle theTriangle = new Triangle();
+        Circle theCircle = new Circle("theCircle", 50);
+        Triangle theTriangle = new Triangle("theTriangle", 30, 30);
         //When
         shapeCollector.addFigure(theSquare);
         shapeCollector.addFigure(theCircle);
         shapeCollector.addFigure(theTriangle);
         //Than
-        Assert.assertEquals(3, shapeCollector.shapesList.size());
+        Assert.assertEquals(3, shapeCollector.getShapesList().size());
     }
 
     @Test //2
@@ -43,15 +46,16 @@ public class ShapeCollectorTestSuite {
         //Given
         ShapeCollector shapeCollector = new ShapeCollector();
         Square theSquare = new Square("Square", 20, 20);
-        Circle theCircle = new Circle();
-        Triangle theTriangle = new Triangle();
+        Circle theCircle = new Circle("theCircle", 50);
+        Triangle theTriangle = new Triangle("theTriangle", 30, 30);
         //When
         shapeCollector.addFigure(theSquare);
         shapeCollector.addFigure(theCircle);
         shapeCollector.addFigure(theTriangle);
-        shapeCollector.removeFigure(theCircle);
+        boolean result = shapeCollector.removeFigure(theCircle);
         //Then
-        Assert.assertEquals(2, shapeCollector.shapesList.size());
+        Assert.assertEquals(2, shapeCollector.getShapesList().size());
+        Assert.assertTrue(result);
     }
 
     @Test //3

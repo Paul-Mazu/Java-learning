@@ -17,6 +17,7 @@ public class Square implements Shape {
     }
 
 
+
     public double getHigh() {
         return high;
     }
@@ -26,8 +27,8 @@ public class Square implements Shape {
     }
 
     @Override
-        public String getShapeName() {
-        return this.shapeName;
+    public String getShapeName() {
+        return "Square";
     }
 
     @Override
