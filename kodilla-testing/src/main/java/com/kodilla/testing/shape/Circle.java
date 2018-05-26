@@ -4,8 +4,8 @@ import static java.lang.Math.pow;
 
 public class Circle implements Shape {
 
-    String circleName;
-    double radius;
+    private String circleName;
+    private double radius;
 
     public Circle(String circleName, double radius) {
         this.circleName = circleName;
