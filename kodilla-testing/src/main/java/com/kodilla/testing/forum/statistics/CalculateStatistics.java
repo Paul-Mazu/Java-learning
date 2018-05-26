@@ -36,13 +36,21 @@ public class CalculateStatistics {
     public void calculateAdvStatistics(Statistics statistics) {
 
         usersQty = statistics.userNames().size();
-        if (usersQty <= 0) return;
         postsQty = statistics.postsCount();
-        if (postsQty <= 0) return;
         commentsQty = statistics.commentCount();
-        avgPostsPerUser = postsQty / usersQty;
-        avgCommentsPerUser = commentsQty / usersQty;
-        avgCommentsPerPost = commentsQty / postsQty;
+        if (usersQty > 0) {
+            avgPostsPerUser = postsQty / usersQty;
+            avgCommentsPerUser = commentsQty / usersQty;
+        } else {
+            avgCommentsPerUser = 0;
+            avgPostsPerUser = 0;
+        }
+
+        if (postsQty > 0) {
+            avgCommentsPerPost = commentsQty / postsQty;
+        } else {
+            avgCommentsPerUser = 0;
+        }
     }
 
     public void showStatistics(){

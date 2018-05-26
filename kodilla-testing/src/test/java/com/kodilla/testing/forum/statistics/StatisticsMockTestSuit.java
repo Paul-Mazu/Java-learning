@@ -11,8 +11,6 @@ import static org.mockito.Mockito.when;
 
 public class StatisticsMockTestSuit {
 
-    private static int testCounter = 0;
-
     @BeforeClass
     public static void beforeAllTests(){
         System.out.println("Tests began");
@@ -28,12 +26,15 @@ public class StatisticsMockTestSuit {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
 
-        List<String>names = new ArrayList<>();
-        for (int i = 0; i < 100; i++) names.add("Imie " + i);
+        List<String>names1 = new ArrayList<>();
+        for (int i = 0; i < 100; i++) names1.add("Imie " + i);
+
+        List<String>names2 = new ArrayList<>();
 
         when(statisticsMock.postsCount()).thenReturn(0);
         when(statisticsMock.commentCount()).thenReturn(4);
-        when(statisticsMock.userNames()).thenReturn(names);
+        when(statisticsMock.userNames()).thenReturn(names1);
+
 
         CalculateStatistics calculateStatistics = new CalculateStatistics();
 
@@ -46,9 +47,6 @@ public class StatisticsMockTestSuit {
         //Then
         Assert.assertEquals(100, usQty, 0);
         Assert.assertEquals(0, posQty, 0);
-        Assert.assertEquals(0, commQty, 0);
-
-
-
+        Assert.assertEquals(4, commQty, 0);
     }
 }
