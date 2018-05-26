@@ -1,17 +1,26 @@
 package com.kodilla.testing.forum.statistics;
 
+import org.junit.AfterClass;
 import org.junit.Assert;
+import org.junit.BeforeClass;
 import org.junit.Test;
-import org.mockito.Mock;
-
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.mockito.ArgumentMatchers.doubleThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class StatisticsMockTestSuit {
+
+    private static int testCounter = 0;
+
+    @BeforeClass
+    public static void beforeAllTests(){
+        System.out.println("Tests began");
+    }
+    @AfterClass
+    public static void afterAllTests(){
+        System.out.println("Tests finished");
+    }
 
     @Test
     public void testCalculateStatisticsWithMock(){
@@ -30,8 +39,16 @@ public class StatisticsMockTestSuit {
 
         //When
         calculateStatistics.calculateAdvStatistics(statisticsMock);
+        double usQty = calculateStatistics.getUsersQty();
+        double posQty = calculateStatistics.getPostsQty();
+        double commQty = calculateStatistics.getCommentsQty();
 
-        calculateStatistics.showStatistics();
+        //Then
+        Assert.assertEquals(100, usQty, 0);
+        Assert.assertEquals(0, posQty, 0);
+        Assert.assertEquals(0, commQty, 0);
+
+
 
     }
 }
