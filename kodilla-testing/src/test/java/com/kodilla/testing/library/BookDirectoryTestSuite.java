@@ -1,5 +1,6 @@
 package com.kodilla.testing.library;
 
+import javafx.beans.binding.When;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -88,6 +89,37 @@ public class BookDirectoryTestSuite {
         //Then
         Assert.assertEquals(0, theListOfBooks10.size());
         verify(libraryDatabaseMock, times(0)).listBooksWithCondition(anyString());
+
+    }
+
+    @Test
+    public void testListBooksInHandsOfNoBooksBorrowed(){
+
+        //Given
+        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
+        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+                //generating different cases of books renting
+        List<Book> noBooksList = new ArrayList<>();
+        List<Book> oneBookList = generateListOfNBooks(1);
+        List<Book> fiveBooksList = generateListOfNBooks(5);
+                //generating different LibraryUsers
+        LibraryUser user1 = new LibraryUser("John", "Smith", "88888888888");
+        LibraryUser user2 = new LibraryUser("Mike", "Hampton", "77777777777");
+        LibraryUser user3 = new LibraryUser("Jenny", "Jenny", "66666666666");
+
+        when(libraryDatabaseMock.listBooksInHandsOf(user1)).thenReturn(noBooksList);
+        when(libraryDatabaseMock.listBooksInHandsOf(user2)).thenReturn(oneBookList);
+        when(libraryDatabaseMock.listBooksInHandsOf(user3)).thenReturn(fiveBooksList);
+
+        //When
+        List<Book> theNoBooksList = bookLibrary.listBooksInHandsOf(user1);
+        List<Book> theOneBookList = bookLibrary.listBooksInHandsOf(user2);
+        List<Book> theFiveBooksList = bookLibrary.listBooksInHandsOf(user3);
+
+        //Then
+        Assert.assertEquals(0, theNoBooksList);
+        Assert.assertEquals(1, theOneBookList);
+        Assert.assertEquals(5, theFiveBooksList);
 
     }
 
