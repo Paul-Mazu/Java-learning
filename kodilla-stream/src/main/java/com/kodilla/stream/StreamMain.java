@@ -3,11 +3,14 @@ package com.kodilla.stream;
         import com.kodilla.stream.beautifier.PoemBeautifier;
         import com.kodilla.stream.book.Book;
         import com.kodilla.stream.book.BookDirectory;
+        import com.kodilla.stream.forumUser.Forum;
+        import com.kodilla.stream.forumUser.ForumUser;
         import com.kodilla.stream.iterate.NumbersGenerator;
         import com.kodilla.stream.lambda.ExpressionExecutor;
         import com.kodilla.stream.person.People;
         import com.kodilla.stream.reference.FunctionalCalculator;
 
+        import java.time.LocalDate;
         import java.util.List;
         import java.util.Map;
         import java.util.stream.Collectors;
@@ -55,13 +58,24 @@ public class StreamMain {
                 .map(entry -> entry.getKey() + ": " + entry.getValue())
                 .forEach(System.out::println);*/
 
-        BookDirectory bookDirectory = new BookDirectory();
+        /*BookDirectory bookDirectory = new BookDirectory();
         String theResultStringOfBooks = bookDirectory.getList().stream()
                 .filter(book -> book.getYearOfPublication() > 2005)
                 .map(Book::toString)
                 .collect(Collectors.joining(",\n", "<<", ">>"));
 
-        System.out.println(theResultStringOfBooks);
+        System.out.println(theResultStringOfBooks);*/
+
+        Forum forum = new Forum();
+        Map<Integer, ForumUser> theForumUsers = forum.getUserList().stream()
+                .filter(forumUser -> forumUser.getSex() == 'F')
+                .filter(forumUser -> forumUser.getDateOfBirth().isBefore(LocalDate.parse("1998-06-02")))
+                .filter(forumUser -> forumUser.getPostsQty() > 0)
+                .collect(Collectors.toMap(ForumUser::getUserID, forumUser -> forumUser));
+
+        theForumUsers.entrySet().stream()
+                .map(entry -> entry.getKey() + ": " + entry.getValue())
+                .forEach(System.out::println);
 
     }
 }
