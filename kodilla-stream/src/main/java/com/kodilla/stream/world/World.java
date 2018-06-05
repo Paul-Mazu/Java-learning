@@ -5,14 +5,17 @@ import java.util.List;
 
 public final class World {
 
-    public ArrayList<String> listOfContinents() {
-        List<String> allContinents = new ArrayList<>();
-        allContinents.add("Asia");
-        allContinents.add("Africa");
-        allContinents.add("North America");
-        allContinents.add("South America");
-        allContinents.add("Antarctica");
-        allContinents.add("Europe");
-        allContinents.add("Australia");
+
+
+    public List<String> continentsList() {
+        List<String> theListOfContinents = new ArrayList<>();
+        theListOfContinents.add("Asia");
+        theListOfContinents.add("Africa");
+        theListOfContinents.add("North America");
+        theListOfContinents.add("South America");
+        theListOfContinents.add("Europe");
+        theListOfContinents.add("Australia");
+        return theListOfContinents;
     }
 }
+
