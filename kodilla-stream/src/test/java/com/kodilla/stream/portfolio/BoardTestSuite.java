@@ -6,6 +6,8 @@ import org.junit.Test;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toList;
 
@@ -113,5 +115,48 @@ public class BoardTestSuite {
 
         //Then
         Assert.assertEquals(0, tasks.size());
+    }
+    @Test
+    public void testAddTaskListFindLongTask() {
+        //Given
+        Board project = prepareTestData();
+        //When
+        List<TaskList> inProgress = new ArrayList<>();
+        inProgress.add(new TaskList("In progress"));
+        long longTask = project.getTaskLists().stream()
+                .filter(inProgress::contains)
+                .flatMap(t -> t.getTasks().stream())
+                .map(t1 -> t1.getCreated())
+                .filter(d -> d.compareTo(LocalDate.now().minusDays(10)) <= 0 )
+                .count();
+        //Then
+        Assert.assertEquals(2, longTask);
+    }
+    @Test
+    public void testAddTaskListAverageWorkingOnTask() {
+
+        //Given
+        Board project = prepareTestData();
+
+        //When
+        List<TaskList> theList = new ArrayList<>();
+        theList.add(new TaskList("In Progress"));
+
+        double theSum = project.getTaskLists().stream()
+                .filter(theList::contains)
+                .flatMap(a -> a.getTasks().stream())
+                .map(b -> LocalDate.now().getDayOfYear() - b.getCreated().getDayOfYear())
+                .mapToLong(i -> i)
+                .sum();
+
+        double theCounter = project.getTaskLists().stream()
+                .filter(theList::contains)
+                .flatMap(a -> a.getTasks().stream())
+                .count();
+
+        double average = theSum/theCounter;
+
+        //Then
+        Assert.assertEquals(1, average, 0);
     }
 }
