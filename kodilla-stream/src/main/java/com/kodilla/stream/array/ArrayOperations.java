@@ -7,12 +7,10 @@ public interface ArrayOperations {
 
     static double getAverage(int[] numbers){
 
-        IntStream.of(numbers).forEach(System.out::println);
+        IntStream.range(numbers[0], numbers.length+1)
+                .forEach(System.out::println);
 
-        IntStream stream = IntStream.of(numbers);
-        OptionalDouble obj = stream.average();
-
-
-        return obj.getAsDouble();
+        return IntStream.range(numbers[0], numbers.length+1)
+                .average().getAsDouble();
     }
 }
