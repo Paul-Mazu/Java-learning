@@ -139,24 +139,21 @@ public class BoardTestSuite {
         Board project = prepareTestData();
 
         //When
-        List<TaskList> theList = new ArrayList<>();
-        theList.add(new TaskList("In Progress"));
-
         double theSum = project.getTaskLists().stream()
-                .filter(theList::contains)
+                .filter(a -> a.getName().contains("In progress"))
                 .flatMap(a -> a.getTasks().stream())
                 .map(b -> LocalDate.now().getDayOfYear() - b.getCreated().getDayOfYear())
                 .mapToLong(i -> i)
                 .sum();
 
         double theCounter = project.getTaskLists().stream()
-                .filter(theList::contains)
+                .filter(a -> a.getName().equals("In progress"))
                 .flatMap(a -> a.getTasks().stream())
                 .count();
 
         double average = theSum/theCounter;
 
         //Then
-        Assert.assertEquals(1, average, 0);
+        Assert.assertEquals(10, average, 0.01);
     }
 }

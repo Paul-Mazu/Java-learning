@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.kodilla.stream.portfolio.BoardTestSuite" tests="5" skipped="0" failures="2" errors="0" timestamp="2018-06-07T19:56:10" hostname="DESKTOP-I6E6A8U" time="0.041">
+<testsuite name="com.kodilla.stream.portfolio.BoardTestSuite" tests="5" skipped="0" failures="2" errors="0" timestamp="2018-07-01T18:18:25" hostname="DESKTOP-63HB9EO" time="0.047">
   <properties/>
-  <testcase name="testAddTaskList" classname="com.kodilla.stream.portfolio.BoardTestSuite" time="0.024"/>
-  <testcase name="testAddTaskListAverageWorkingOnTask" classname="com.kodilla.stream.portfolio.BoardTestSuite" time="0.004">
+  <testcase name="testAddTaskList" classname="com.kodilla.stream.portfolio.BoardTestSuite" time="0.029"/>
+  <testcase name="testAddTaskListAverageWorkingOnTask" classname="com.kodilla.stream.portfolio.BoardTestSuite" time="0.006">
     <failure message="java.lang.AssertionError: expected:&lt;1.0&gt; but was:&lt;NaN&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;1.0&gt; but was:&lt;NaN&gt;
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -57,9 +57,9 @@
 	at java.lang.Thread.run(Thread.java:748)
 </failure>
   </testcase>
-  <testcase name="testAddTaskListFindUserTasks" classname="com.kodilla.stream.portfolio.BoardTestSuite" time="0.006"/>
+  <testcase name="testAddTaskListFindUserTasks" classname="com.kodilla.stream.portfolio.BoardTestSuite" time="0.002"/>
   <testcase name="testAddTaskListFindOutdatedTasks" classname="com.kodilla.stream.portfolio.BoardTestSuite" time="0.002"/>
-  <testcase name="testAddTaskListFindLongTask" classname="com.kodilla.stream.portfolio.BoardTestSuite" time="0.003">
+  <testcase name="testAddTaskListFindLongTask" classname="com.kodilla.stream.portfolio.BoardTestSuite" time="0.006">
     <failure message="java.lang.AssertionError: expected:&lt;2&gt; but was:&lt;0&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;2&gt; but was:&lt;0&gt;
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
