@@ -11,15 +11,13 @@ public class FlightFinder {
         flights.put("Berlin", true);
         flights.put("Warsaw", false);
 
-        try {
-            if (flights.get(arrival) == true) {
+           if (flights.get(arrival) == null) {
+               throw new RouteNotFoundException("That direction doesn't exist");
+
+           } else if (flights.get(arrival)) {
                 System.out.println("The flight to " + flight.toString() + " is possible.");
                 return;
             }
-            System.out.println("The flight to " + flight.toString() + " is not possible.");
-
-        } catch (NullPointerException e) {
-            new RouteNotFoundException();
-        }
+                System.out.println("The flight to " + flight.toString() + " is not possible.");
+            }
     }
-}
