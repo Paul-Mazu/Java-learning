@@ -10,6 +10,6 @@ public class Game implements Item {
 
     @Override
     public String getItemName() {
-        return null;
+        return itemName;
     }
 }
