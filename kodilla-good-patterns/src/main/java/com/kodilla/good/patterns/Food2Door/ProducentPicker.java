@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class ProducentPicker {
 
-    public Producent pickProducent() {
+    public Producent pickProducent() throws NoProducentException {
 
         Map<String, Producent> producentMap = new HashMap<>();
 
@@ -17,6 +17,10 @@ public class ProducentPicker {
 
         BuyRequestRetriever buyRequestRetriever = new BuyRequestRetriever();
         BuyRequest buyRequest = buyRequestRetriever.retrieve();
-        return producentMap.get(buyRequest.getProducent());
+        Producent theProducent  =  producentMap.get(buyRequest.getProducent());
+        if (theProducent == null) {
+            throw new NoProducentException("Producent doesn't exist");
+        }
+        return theProducent;
     }
 }

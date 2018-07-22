@@ -9,8 +9,14 @@ public class SaleProcessor {
     }
 
     public boolean processor (BuyRequest buyRequest) {
-        producentPicker.pickProducent().process(buyRequest.getProduct(), buyRequest.getProductQty());
-        return true;
+        try {
+            producentPicker.pickProducent().process(buyRequest.getProduct(), buyRequest.getProductQty());
+            return true;
+        } catch (NoProducentException e) {
+            System.out.println("Sorry, we didn't find that producent, pleas try again");
+            return false;
+        }
+
     }
 
 
