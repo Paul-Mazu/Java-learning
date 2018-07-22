@@ -1,7 +1,9 @@
 package com.kodilla.good.patterns.Flights;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class FlightsFinder {
@@ -21,17 +23,17 @@ public class FlightsFinder {
                 .collect(Collectors.toList());
     }
 
-    public List<String> findNotDirect(String departure, String destination) {
-        List<String> citiesOfSwap = new ArrayList<>();
+    public Set<UndirectFlies> findNotDirect(String departure, String destination) {
+        Set<UndirectFlies> undirectFly = new HashSet<>();
         for (int i = 0; i < findDestinations(departure).size(); i++) {
             String middleDestination = findDestinations(departure).get(i);
             for (int y = 0; y < findDepartures(destination).size(); y++) {
                 String departureToFinalDestination = findDepartures(destination).get(y);
                 if (departureToFinalDestination.equals(middleDestination)) {
-                    citiesOfSwap.add(departureToFinalDestination);
+                    undirectFly.add(new UndirectFlies(departure, middleDestination, destination));
                 }
             }
         }
-        return citiesOfSwap;
+        return undirectFly;
     }
 }
