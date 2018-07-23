@@ -23,14 +23,15 @@ public class FlightsFinder {
                 .collect(Collectors.toList());
     }
 
-    public Set<UndirectFlies> findNotDirect(String departure, String destination) {
-        Set<UndirectFlies> undirectFly = new HashSet<>();
+    public Set<Flights> findNotDirect(String departure, String destination) {
+        Set<Flights> undirectFly = new HashSet<>();
         for (int i = 0; i < findDestinations(departure).size(); i++) {
             String middleDestination = findDestinations(departure).get(i);
             for (int y = 0; y < findDepartures(destination).size(); y++) {
                 String departureToFinalDestination = findDepartures(destination).get(y);
                 if (departureToFinalDestination.equals(middleDestination)) {
-                    undirectFly.add(new UndirectFlies(departure, middleDestination, destination));
+                    undirectFly.add(new Flights(departure, middleDestination));
+                    undirectFly.add(new Flights(middleDestination, destination));
                 }
             }
         }
