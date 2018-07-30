@@ -6,6 +6,10 @@ public class Logger {
 
     private String lastLog = "";
 
+    private Logger() {
+
+    }
+
     public static Logger getLoggerInstance() {
         if (loggerInstance == null) {
             synchronized (Logger.class) {
