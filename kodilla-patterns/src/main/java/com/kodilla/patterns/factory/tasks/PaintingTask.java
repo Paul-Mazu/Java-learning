@@ -11,7 +11,7 @@ public class PaintingTask implements Task {
         this.whatToPaint = whatToPaint;
     }
 
-    boolean ifTask = false;
+    private boolean ifTask = false;
     @Override
     public void executeTask() {
         System.out.println("Painting a " + whatToPaint + " with a " + color + " color.");

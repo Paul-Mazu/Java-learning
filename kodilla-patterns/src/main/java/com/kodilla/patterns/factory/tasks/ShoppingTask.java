@@ -11,7 +11,7 @@ public final class ShoppingTask implements Task {
         this.whatToBuy = whatToBuy;
         this.quantity = quantity;
     }
-    boolean ifTask = false;
+    private boolean ifTask = false;
 
     @Override
     public void executeTask() {

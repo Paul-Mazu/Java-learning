@@ -11,7 +11,7 @@ public final class DrivingTask implements Task {
         this.using = using;
     }
 
-    boolean ifTask = false;
+    private boolean ifTask = false;
 
     @Override
     public void executeTask() {
