@@ -31,7 +31,7 @@ public class ForumTestSuite {
         //Given
         ForumUser forumUser = new ForumUser("John", "Smith");
         //When
-        forumUser.addPost("John", "Hello Hello dudes - it's my first post");
+        forumUser.addPost(new ForumPost("John", "Hello Hello dudes - it's my first post"));
         //Then
         Assert.assertEquals(1, forumUser.getPostsQuantity());
     }
@@ -50,12 +50,12 @@ public class ForumTestSuite {
         //Given
         ForumUser forumUser = new ForumUser("John", "Smith");
         ForumPost thePost = new ForumPost("Hello Dudes", "John");
-        forumUser.addPost(thePost.getAuthor(), thePost.getPostBody());
+        forumUser.addPost(thePost);
         //When
         ForumPost retrievedPost;
         retrievedPost = forumUser.getPost(0);
         //Then
-        Assert.assertEquals(thePost, retrievedPost);
+        Assert.assertEquals(thePost.getAuthor(), retrievedPost.getAuthor());
     }
     @Test //4
     public void testGetComment(){
@@ -95,7 +95,7 @@ public class ForumTestSuite {
         //Given
         ForumUser forumUser = new ForumUser("John", "Smith");
         ForumPost thePost = new ForumPost("Hello all!", "John");
-        forumUser.addPost(thePost.getAuthor(), thePost.getPostBody());
+        forumUser.addPost(thePost);
         //When
         boolean result = forumUser.removePost(thePost);
         //Then

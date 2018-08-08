@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.kodilla.patterns.strategy.CustomerTestSuite" tests="2" skipped="0" failures="0" errors="0" timestamp="2018-08-08T19:32:11" hostname="DESKTOP-63HB9EO" time="0.01">
+  <properties/>
+  <testcase name="testIndividualInvestingStrategy" classname="com.kodilla.patterns.strategy.CustomerTestSuite" time="0.007"/>
+  <testcase name="testDefaultInvestingStrategies" classname="com.kodilla.patterns.strategy.CustomerTestSuite" time="0.003"/>
+  <system-out><![CDATA[Conservative predictor
+Agressive predictor
+Conservative predictor
+Agressive predictor
+Balanced predictor
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

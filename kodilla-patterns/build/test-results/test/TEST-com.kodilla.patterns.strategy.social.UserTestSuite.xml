@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.kodilla.patterns.strategy.social.UserTestSuite" tests="2" skipped="0" failures="0" errors="0" timestamp="2018-08-08T19:32:12" hostname="DESKTOP-63HB9EO" time="0.012">
+  <properties/>
+  <testcase name="testDefaultSharingStrategies" classname="com.kodilla.patterns.strategy.social.UserTestSuite" time="0.011"/>
+  <testcase name="testIndividualSharingStrategy" classname="com.kodilla.patterns.strategy.social.UserTestSuite" time="0.0"/>
+  <system-out><![CDATA[Publishes on Facebook
+Publishes on Twitter
+Publishes on Snapchat
+Publishes on Facebook
+Publishes on Twitter
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

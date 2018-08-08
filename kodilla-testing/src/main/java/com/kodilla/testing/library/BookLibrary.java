@@ -1,7 +1,5 @@
 package com.kodilla.testing.library;
 
-import com.sun.javaws.jnl.LibraryDesc;
-
 import java.util.ArrayList;
 import java.util.List;
 
