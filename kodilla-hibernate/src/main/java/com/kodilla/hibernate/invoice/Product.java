@@ -13,7 +13,6 @@ public class Product {
     private List<Item> items = new ArrayList<>();
 
     public Product() {
-
     }
 
     public Product(String name) {
