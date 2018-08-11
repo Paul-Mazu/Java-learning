@@ -52,6 +52,11 @@ public class InvoiceDaoTestSuite {
         item3.setInvoice(invoice);
 
         //When
+        productDao.save(bread);
+        productDao.save(milk);
+        itemDao.save(item1);
+        itemDao.save(item2);
+        itemDao.save(item3);
         invoiceDao.save(invoice);
         int id = invoice.getId();
 
@@ -59,6 +64,10 @@ public class InvoiceDaoTestSuite {
         Assert.assertNotEquals(0, id);
 
         //CleanUp
+        invoiceDao.deleteAll();
+        itemDao.deleteAll();
+        productDao.deleteAll();
+
 
     }
 }
