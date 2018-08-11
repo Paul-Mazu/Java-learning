@@ -6,14 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "INVOICE")
+@Table(name = "INVOICES")
 public class Invoice {
     private int id;
     private String number;
     private List<Item> items = new ArrayList<>();
 
     public Invoice() {
-
     }
 
     public Invoice(String number) {
@@ -23,7 +22,7 @@ public class Invoice {
     @Id
     @GeneratedValue
     @NotNull
-    @Column(name = "ID_INVOICE", unique = true)
+    @Column(name = "ID", unique = true)
     public int getId() {
         return id;
     }
@@ -55,4 +54,6 @@ public class Invoice {
     public void setItems(List<Item> items) {
         this.items = items;
     }
+
+
 }

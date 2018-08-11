@@ -11,15 +11,18 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
+import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class InvoiceDaoTestSuite {
+
     @Autowired
-    InvoiceDao invoiceDao;
-    ProductDao productDao;
-    ItemDao itemDao;
+    private InvoiceDao invoiceDao;
+    @Autowired
+    private ProductDao productDao;
+    @Autowired
+    private ItemDao itemDao;
 
     @Test
     public void testInvoiceDaoSave() {
@@ -27,17 +30,17 @@ public class InvoiceDaoTestSuite {
         Product bread = new Product("Bread");
         Product milk = new Product("Milk");
 
-        Item item1 = new Item(bread, new BigDecimal(2.35), 3);
-        Item item2 = new Item(milk, new BigDecimal(2.99), 1);
-        Item item3 = new Item(bread, new BigDecimal(2.55), 1);
+        Item item1 = new Item(new BigDecimal(2.35), 3);
+        Item item2 = new Item(new BigDecimal(2.99), 1);
+        Item item3 = new Item(new BigDecimal(2.35), 1);
 
         bread.getItems().add(item1);
         bread.getItems().add(item3);
         milk.getItems().add(item2);
 
         item1.setProduct(bread);
-        item2.setProduct(milk);
         item3.setProduct(bread);
+        item2.setProduct(milk);
 
         Invoice invoice = new Invoice("01/08/2018");
         invoice.getItems().add(item1);
@@ -49,11 +52,6 @@ public class InvoiceDaoTestSuite {
         item3.setInvoice(invoice);
 
         //When
-        itemDao.save(item1);
-        itemDao.save(item2);
-        itemDao.save(item3);
-        productDao.save(bread);
-        productDao.save(milk);
         invoiceDao.save(invoice);
         int id = invoice.getId();
 
@@ -61,7 +59,6 @@ public class InvoiceDaoTestSuite {
         Assert.assertNotEquals(0, id);
 
         //CleanUp
-
 
     }
 }

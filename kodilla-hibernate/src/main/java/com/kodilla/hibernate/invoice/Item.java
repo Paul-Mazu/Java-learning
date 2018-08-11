@@ -14,13 +14,10 @@ public class Item {
     private BigDecimal value;
     private Invoice invoice;
 
-
     public Item() {
-
     }
 
-    public Item(Product product, BigDecimal price, int quantity) {
-        this.product = product;
+    public Item(BigDecimal price, int quantity) {
         this.price = price;
         this.quantity = quantity;
     }
@@ -28,7 +25,7 @@ public class Item {
     @Id
     @GeneratedValue
     @NotNull
-    @Column(name = "ITEM_ID", unique = true)
+    @Column(name = "ID", unique = true)
     public int getId() {
         return id;
     }
