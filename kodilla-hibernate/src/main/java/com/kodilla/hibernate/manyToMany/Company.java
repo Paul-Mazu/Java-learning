@@ -11,7 +11,7 @@ import java.util.List;
         name = "Company.retrieveFirstLetters",
         query = " SELECT * FROM COMPANIES " +
                 " WHERE (SELECT LEFT ( company_name, 3)) = :LETTERS ",
-        resultClass = Task.class
+        resultClass = Company.class
 )
 
 @Entity
