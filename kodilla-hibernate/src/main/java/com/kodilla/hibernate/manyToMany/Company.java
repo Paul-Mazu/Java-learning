@@ -1,9 +1,18 @@
 package com.kodilla.hibernate.manyToMany;
 
+import com.kodilla.hibernate.task.Task;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
+
+@NamedNativeQuery(
+        name = "Company.retrieveFirstLetters",
+        query = " SELECT * FROM COMPANIES " +
+                " WHERE (SELECT LEFT ( company_name, 3)) = :LETTERS ",
+        resultClass = Task.class
+)
 
 @Entity
 @Table(name = "COMPANIES")
@@ -22,8 +31,8 @@ public class Company {
     }
 
     @Id
-    @NotNull
     @GeneratedValue
+    @NotNull
     @Column(name = "COMPANY_ID", unique = true)
     public int getId() {
         return id;
