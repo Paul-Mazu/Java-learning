@@ -21,7 +21,6 @@ import java.util.List;
 
 @Entity
 @Table(name = "EMPLOYEES")
-@Component
 public class Employee {
 
     private int id;

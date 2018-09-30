@@ -1,6 +1,5 @@
 package com.kodilla.hibernate.manyToMany;
 
-import com.kodilla.hibernate.task.Task;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
@@ -26,7 +25,6 @@ import java.util.List;
 
 @Entity
 @Table(name = "COMPANIES")
-@Component
 public class Company {
 
     private int id;
