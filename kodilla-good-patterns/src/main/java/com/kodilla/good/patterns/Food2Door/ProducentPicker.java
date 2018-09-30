@@ -17,7 +17,7 @@ public class ProducentPicker {
 
         BuyRequestRetriever buyRequestRetriever = new BuyRequestRetriever();
         BuyRequest buyRequest = buyRequestRetriever.retrieve();
-        Producent theProducent  =  producentMap.get(buyRequest.getProducent());
+        Producent theProducent = producentMap.get(buyRequest.getProducent());
         if (theProducent == null) {
             throw new NoProducentException("Producent doesn't exist");
         }

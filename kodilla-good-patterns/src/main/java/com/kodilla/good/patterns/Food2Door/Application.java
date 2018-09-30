@@ -9,6 +9,5 @@ public class Application {
         saleProcessor.processor(buyRequest);
 
 
-
     }
 }

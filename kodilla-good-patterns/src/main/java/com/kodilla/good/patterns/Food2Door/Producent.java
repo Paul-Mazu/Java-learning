@@ -5,6 +5,7 @@ import java.util.HashMap;
 public interface Producent {
 
     String getProducentName();
+
     boolean process(String productName, int orderetQty);
 
 }

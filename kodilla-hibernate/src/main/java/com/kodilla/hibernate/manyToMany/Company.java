@@ -1,21 +1,32 @@
 package com.kodilla.hibernate.manyToMany;
 
 import com.kodilla.hibernate.task.Task;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-@NamedNativeQuery(
-        name = "Company.retrieveFirstLetters",
-        query = " SELECT * FROM COMPANIES " +
-                " WHERE (SELECT LEFT ( company_name, 3)) = :LETTERS ",
-        resultClass = Company.class
-)
+@NamedNativeQueries({
+        @NamedNativeQuery(
+                name = "Company.retrieveFirstLetters",
+                query = " SELECT * FROM COMPANIES " +
+                        " WHERE (SELECT LEFT ( company_name, 3)) = :LETTERS ",
+                resultClass = Company.class
+        ),
+
+        @NamedNativeQuery(
+                name = "Company.retrieveCompanies",
+                query = "SELECT * FROM COMPANIES " +
+                        " WHERE company_name LIKE CONCAT('%', :ARG, '%')",
+                resultClass = Company.class
+        )
+})
 
 @Entity
 @Table(name = "COMPANIES")
+@Component
 public class Company {
 
     private int id;

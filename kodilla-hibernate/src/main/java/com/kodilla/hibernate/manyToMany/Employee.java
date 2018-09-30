@@ -1,19 +1,27 @@
 package com.kodilla.hibernate.manyToMany;
 
-import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-@NamedQuery(
-        name = "Employee.retrieveEmployeeWithName",
-        query = "FROM Employee WHERE lastname = :LASTNAME"
+
+//@NamedQuery(
+//        name = "Employee.retrieveEmployeeWithName",
+//        query = "FROM Employee WHERE lastname = :LASTNAME"
+//)
+@NamedNativeQuery(
+        name = "Employee.retrieveEmployees",
+        query = " SELECT * FROM EMPLOYEES " +
+                " WHERE LASTNAME LIKE CONCAT('%', :ARG, '%') ",
+                resultClass = Employee.class
 )
 
 @Entity
 @Table(name = "EMPLOYEES")
+@Component
 public class Employee {
 
     private int id;

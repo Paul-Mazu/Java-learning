@@ -3,7 +3,7 @@ package com.kodilla.good.patterns.challenges;
 public class ZadanieLiczbyPierwsze {
 
     public static boolean metod(int x) {
-        for (int i = 2; i <= x/2; i++) {
+        for (int i = 2; i <= x / 2; i++) {
             if (x % i == 0) {
                 return false;
             }
@@ -18,7 +18,7 @@ public class ZadanieLiczbyPierwsze {
 
         while (pierwsze < 10000) {
             if (metod(temp)) {
-                pierwsze ++;
+                pierwsze++;
                 System.out.println(temp);
             }
             temp++;

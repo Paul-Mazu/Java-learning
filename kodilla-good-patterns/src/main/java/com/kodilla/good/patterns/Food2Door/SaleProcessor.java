@@ -8,7 +8,7 @@ public class SaleProcessor {
         this.producentPicker = producentPicker;
     }
 
-    public boolean processor (BuyRequest buyRequest) {
+    public boolean processor(BuyRequest buyRequest) {
         try {
             producentPicker.pickProducent().process(buyRequest.getProduct(), buyRequest.getProductQty());
             return true;
