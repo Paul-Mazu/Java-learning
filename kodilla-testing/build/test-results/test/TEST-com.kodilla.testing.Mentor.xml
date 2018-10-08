@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.kodilla.testing.Mentor" tests="4" skipped="0" failures="0" errors="0" timestamp="2018-10-07T19:30:15" hostname="DESKTOP-63HB9EO" time="0.002">
+  <properties/>
+  <testcase name="testMax" classname="com.kodilla.testing.Mentor" time="0.001"/>
+  <testcase name="testAverage" classname="com.kodilla.testing.Mentor" time="0.0"/>
+  <testcase name="testCountEmptyStringUsingJava7" classname="com.kodilla.testing.Mentor" time="0.0"/>
+  <testcase name="testSquares" classname="com.kodilla.testing.Mentor" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
