@@ -5,6 +5,7 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -96,10 +97,13 @@ public class CrudAppTestSuite {
     }
 
     private void deleteTask(String taskName) {
+
+        Alert alert = driver.switchTo().alert();
+        alert.accept();
         driver.findElements(By.xpath("//form[@class=\"datatable__row\"]")).stream()
                 .filter(anyForm -> anyForm.findElement(By.xpath(".//p[@class=\"datatable__field-value\"]")).getText().equals(taskName))
                 .forEach(theForm -> {
-                    WebElement buttonDeleteCard = theForm.findElement(By.xpath("//fieldset[@class=\"datatable__row-section datatable__row-section--button-section\"]/button[4]"));
+                    WebElement buttonDeleteCard = theForm.findElement(By.xpath(".//fieldset[@class=\"datatable__row-section datatable__row-section--button-section\"]/button[4]"));
                     buttonDeleteCard.click();
                 });
     }
